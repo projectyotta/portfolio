@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frameworks & Internal Tools | Anusha Katuru</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c0e10;
+      --text: #f4f4f4;
+      --accent: #6ec1e4;
+      --highlight: #c4ff88;
+      --fade: #c2c2c2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 6rem 3rem 2rem;
+      background: linear-gradient(to bottom, #11141a, #0c0e10);
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3rem;
+      color: var(--highlight);
+    }
+
+    .grid-section {
+  padding: 5rem 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+    .tool-card {
+      background-color: #11141a;
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+    }
+
+    .tool-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .tool-card h3 {
+  font-size: 1.2rem;
+  padding: 1rem;
+  color: var(--highlight);
+  font-weight: 500;
+  background-color: var(--bg);
+  border-bottom: 1px solid #1a1d22;
+}
+
+    footer {
+      text-align: center;
+      padding: 5rem 2rem;
+      font-size: 1rem;
+      color: var(--fade);
+      background-color: #11141a;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Frameworks & Internal Tools</h1>
+  </header>
+
+  <section class="grid-section" id="frameworks-grid">
+    <!-- JS will populate these cards dynamically -->
+  </section>
+
+  <footer>
+    &copy; 2025 Anusha Katuru — Built with care & signal
+  </footer>
+
+  <script>
+    const tools = [
+  {
+    title: "Risk Signal Escalation",
+    image: "https://images.unsplash.com/photo-1603573898193-8e4b20c44f71?fit=crop&w=800&q=80",
+    link: "#"
+  },
+  {
+    title: "Lifecycle Governance Tracker",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?fit=crop&w=800&q=80",
+    link: "#"
+  },
+  {
+    title: "Stakeholder Sync Engine",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?fit=crop&w=800&q=80",
+    link: "#"
+  },
+  {
+    title: "Anomaly Detection Library",
+    image: "https://images.unsplash.com/photo-1581090700227-1be168b7dd7b?fit=crop&w=800&q=80",
+    link: "#"
+  }
+];
+
+    const grid = document.getElementById('frameworks-grid');
+
+    tools.forEach(tool => {
+      const card = document.createElement('div');
+            card.classList.add('tool-card');
+      card.innerHTML = `
+  <h3>${tool.title}</h3>
+  <img src="${tool.image}" alt="${tool.title}" />
+`;
+      grid.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>

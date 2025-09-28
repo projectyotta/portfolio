@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product & Strategic Reasoning | Anusha Katuru</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c0e10;
+      --text: #f4f4f4;
+      --accent: #6ec1e4;
+      --highlight: #c4ff88;
+      --fade: #c2c2c2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 6rem 3rem 2rem;
+      background: linear-gradient(to bottom, #11141a, #0c0e10);
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3rem;
+      color: var(--highlight);
+    }
+
+    section.band {
+      padding: 8rem 3rem;
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+      will-change: opacity, transform;
+    }
+
+    section.band.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .band:nth-child(odd) {
+      background-color: #0e1012;
+    }
+
+    .band:nth-child(even) {
+      background-color: #11141a;
+    }
+
+    .band-content {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .band h3 {
+      font-size: 1.6rem;
+      color: var(--highlight);
+      margin-bottom: 0.75rem;
+    }
+
+    .band p {
+      font-size: 1.05rem;
+      color: var(--fade);
+      line-height: 1.7;
+    }
+
+    .typing-title {
+      display: inline-block;
+      border-right: 2px solid var(--highlight);
+      white-space: nowrap;
+      overflow: hidden;
+      animation: blinkCursor 0.8s step-end infinite;
+    }
+
+    @keyframes blinkCursor {
+      from, to { border-color: transparent; }
+      50% { border-color: var(--highlight); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 5rem 2rem;
+      font-size: 1rem;
+      color: var(--fade);
+      background-color: #11141a;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Product & Strategic Reasoning</h1>
+  </header>
+
+  <section class="band">
+    <div class="band-content">
+      <h3 class="typing-title" data-title="Competitive Intelligence Dashboards"></h3>
+      <p>Built PM tooling to help startups benchmark product-market fit maturity. Ingested publicly available job board data, pricing tiers, churn benchmarks, and Crunchbase metadata into structured dashboards. Used to inform product bets, GTM strategy, and sales prioritization.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-content">
+      <h3 class="typing-title" data-title="Indorama Chef Scraper"></h3>
+      <p>Reverse-engineered a closed-source pricing aggregator to track regional commodity fluctuations. Integrated it with internal procurement pipeline to provide near real-time advisories for the strategy team. Proved value by surfacing $40k in potential cost savings in 1 quarter.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-content">
+      <h3 class="typing-title" data-title="Multi-Node Decision Mapping"></h3>
+      <p>Mapped decision velocity and bottlenecks across teams (engineering, finance, vendors) and time horizons (weekly planning, quarter commits, annual budgeting). Output was used as a governance model template for cross-functional initiatives.</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Anusha Katuru — Built with care & signal
+  </footer>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const bands = document.querySelectorAll('.band');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        root: null,
+        threshold: 0.1,
+      });
+
+      bands.forEach(band => observer.observe(band));
+
+      const typingTitles = document.querySelectorAll('.typing-title');
+      typingTitles.forEach(el => {
+        const fullText = el.dataset.title;
+        let index = 0;
+        const speed = 24;
+        el.textContent = '';
+
+        const typeChar = () => {
+          if (index < fullText.length) {
+            el.textContent += fullText.charAt(index);
+            index++;
+            setTimeout(typeChar, speed);
+          } else {
+            el.style.borderRight = 'none';
+          }
+        };
+
+        const band = el.closest('.band');
+        const titleObserver = new IntersectionObserver(([entry]) => {
+          if (entry.isIntersecting) {
+            typeChar();
+            titleObserver.unobserve(band);
+          }
+        }, { threshold: 0.4 });
+
+        titleObserver.observe(band);
+      });
+    });
+  </script>
+</body>
+</html>
