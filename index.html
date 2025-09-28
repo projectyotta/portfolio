@@ -1,215 +1,219 @@
-<!DOCTYPE HTML>
-<!--
-	Forty by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Forty by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anusha Katuru | Data Systems Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c0e10;
+      --text: #f4f4f4;
+      --accent: #6ec1e4;
+      --highlight: #c4ff88;
+      --fade: #c2c2c2;
+    }
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-				<!-- Header -->
-					<header id="header" class="alt">
-						<a href="index.html" class="logo"><strong>Forty</strong> <span>by HTML5 UP</span></a>
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
-					</header>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
 
-				<!-- Menu -->
-					<nav id="menu">
-						<ul class="links">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="landing.html">Landing</a></li>
-							<li><a href="generic.html">Generic</a></li>
-							<li><a href="elements.html">Elements</a></li>
-						</ul>
-						<ul class="actions stacked">
-							<li><a href="#" class="button primary fit">Get Started</a></li>
-							<li><a href="#" class="button fit">Log In</a></li>
-						</ul>
-					</nav>
+    header {
+      padding: 4rem 3rem 2rem;
+      background: linear-gradient(to bottom, #11141a, #0c0e10);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      align-items: center;
+      justify-content: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
 
-				<!-- Banner -->
-					<section id="banner" class="major">
-						<div class="inner">
-							<header class="major">
-								<h1>Hi, my name is Forty</h1>
-							</header>
-							<div class="content">
-								<p>A responsive site template designed by HTML5 UP<br />
-								and released under the Creative Commons.</p>
-								<ul class="actions">
-									<li><a href="#one" class="button next scrolly">Get Started</a></li>
-								</ul>
-							</div>
-						</div>
-					</section>
+    header img {
+      border-radius: 50%;
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border: 2px solid var(--accent);
+    }
 
-				<!-- Main -->
-					<div id="main">
+    .intro-text {
+      max-width: 700px;
+    }
 
-						<!-- One -->
-							<section id="one" class="tiles">
-								<article>
-									<span class="image">
-										<img src="images/pic01.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="landing.html" class="link">Aliquam</a></h3>
-										<p>Ipsum dolor sit amet</p>
-									</header>
-								</article>
-								<article>
-									<span class="image">
-										<img src="images/pic02.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="landing.html" class="link">Tempus</a></h3>
-										<p>feugiat amet tempus</p>
-									</header>
-								</article>
-								<article>
-									<span class="image">
-										<img src="images/pic03.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="landing.html" class="link">Magna</a></h3>
-										<p>Lorem etiam nullam</p>
-									</header>
-								</article>
-								<article>
-									<span class="image">
-										<img src="images/pic04.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="landing.html" class="link">Ipsum</a></h3>
-										<p>Nisl sed aliquam</p>
-									</header>
-								</article>
-								<article>
-									<span class="image">
-										<img src="images/pic05.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="landing.html" class="link">Consequat</a></h3>
-										<p>Ipsum dolor sit amet</p>
-									</header>
-								</article>
-								<article>
-									<span class="image">
-										<img src="images/pic06.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="landing.html" class="link">Etiam</a></h3>
-										<p>Feugiat amet tempus</p>
-									</header>
-								</article>
-							</section>
+    header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3rem;
+      color: var(--highlight);
+    }
 
-						<!-- Two -->
-							<section id="two">
-								<div class="inner">
-									<header class="major">
-										<h2>Massa libero</h2>
-									</header>
-									<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
-									<ul class="actions">
-										<li><a href="landing.html" class="button next">Get Started</a></li>
-									</ul>
-								</div>
-							</section>
+    header p {
+      font-size: 1.2rem;
+      color: var(--fade);
+      margin-top: 0.75rem;
+    }
 
-					</div>
+    section {
+      padding: 5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
 
-				<!-- Contact -->
-					<section id="contact">
-						<div class="inner">
-							<section>
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="6"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Clear" /></li>
-									</ul>
-								</form>
-							</section>
-							<section class="split">
-								<section>
-									<div class="contact-method">
-										<span class="icon solid alt fa-envelope"></span>
-										<h3>Email</h3>
-										<a href="#">information@untitled.tld</a>
-									</div>
-								</section>
-								<section>
-									<div class="contact-method">
-										<span class="icon solid alt fa-phone"></span>
-										<h3>Phone</h3>
-										<span>(000) 000-0000 x12387</span>
-									</div>
-								</section>
-								<section>
-									<div class="contact-method">
-										<span class="icon solid alt fa-home"></span>
-										<h3>Address</h3>
-										<span>1234 Somewhere Road #5432<br />
-										Nashville, TN 00000<br />
-										United States of America</span>
-									</div>
-								</section>
-							</section>
-						</div>
-					</section>
+    .section-text {
+      flex: 1 1 600px;
+    }
 
-				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<ul class="icons">
-								<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-							</ul>
-							<ul class="copyright">
-								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</footer>
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
 
-			</div>
+    .section-body {
+      font-size: 1.05rem;
+      color: var(--fade);
+      line-height: 1.8;
+    }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+    .section-image {
+      flex: 1 1 600px;
+      text-align: center;
+    }
 
-	</body>
+    .section-image img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    footer {
+      text-align: center;
+      padding: 4rem 2rem;
+      font-size: 1rem;
+      color: var(--fade);
+      background-color: #11141a;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://avatars.githubusercontent.com/u/9919?s=200&v=4" alt="Profile Photo" />
+    <div class="intro-text">
+      <h1>Data Systems, Built to Endure</h1>
+      <p>I've worked across industries and roles — from data engineering to strategy, from infrastructure to insights. I think like a builder but also like a critic. What matters to me is clarity, thoughtful decisions, and meaningful velocity. My work often lives in the overlap of ambiguous problems and technical constraints — where you're not just delivering features, you're designing how people reason through complexity.</p>
+    </div>
+  </header>
+
+  <section class="fade-in">
+    <div class="section-text">
+      <h2 class="section-title">Work in Systems</h2>
+      <p class="section-body">Infrastructure, observability, automation — from Foundry to cloud-native pipelines that don't break under load. Resilient, testable, production-ready.</p>
+    </div>
+    <div class="section-image">
+      <img src="https://images.unsplash.com/photo-1581091012184-df4bd7cfa0f4" alt="Systems Infrastructure" />
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-image">
+      <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159" alt="Product Thinking" />
+    </div>
+    <div class="section-text">
+      <h2 class="section-title">Product & Strategic Reasoning</h2>
+      <p class="section-body">Go-to-market alignment, stakeholder loops, and delivering systems people actually use. Strategy not as vision, but as iteration in context.</p>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-text">
+      <h2 class="section-title">Data Product Whitepapers</h2>
+      <p class="section-body">End-to-end documentation: from ingestion to validation, integration to ops handoff. Like DFA — full-stack transparency, technical depth, real-world trade-offs.</p>
+    </div>
+    <div class="section-image">
+      <img src="https://images.unsplash.com/photo-1633356122102-3d3480cf0a3c" alt="Data Whitepapers" />
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-image">
+      <img src="https://images.unsplash.com/photo-1581092334514-91190be30b16" alt="Internal Tools" />
+    </div>
+    <div class="section-text">
+      <h2 class="section-title">Frameworks & Internal Tools</h2>
+      <p class="section-body">Reusable validation logic, test libraries, automation templates. Tooling that enables decision velocity — without being fragile or overbuilt.</p>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-text">
+      <h2 class="section-title">Investigations & Explorations</h2>
+      <p class="section-body">Waveform classifiers, weird scrapers, fall-risk field modeling. Places where questions turned into insight — even without perfect answers.</p>
+    </div>
+    <div class="section-image">
+      <img src="https://images.unsplash.com/photo-1596079890749-0cb06f5d8b35" alt="Investigations" />
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-image">
+      <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df" alt="Narrative Essays" />
+    </div>
+    <div class="section-text">
+      <h2 class="section-title">Essays & Narrative Memos</h2>
+      <p class="section-body">Observations on execution, systems friction, what "good" feels like when building data products. Essays with spine and technical weight.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="fade-in">
+    <div class="section-text">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-body">Interested in collaborating, chatting systems, or need someone to untangle the messy middle of your roadmap? Reach out. I respond thoughtfully, always.</p>
+      <p class="section-body"><a href="mailto:youremail@example.com" style="color: var(--accent); text-decoration: underline;">youremail@example.com</a></p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Anusha Katuru — Built with care & signal
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
 </html>
