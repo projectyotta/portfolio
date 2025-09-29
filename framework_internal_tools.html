@@ -100,29 +100,58 @@
   </footer>
 
   <script>
-    const tools = [
+const tools = [
   {
-    title: "Risk Signal Escalation",
-    image: "https://images.unsplash.com/photo-1603573898193-8e4b20c44f71?fit=crop&w=800&q=80",
-    link: "#"
+    title: "Validator Blueprint for PG&E Datasets",
+    description: "Packaged reusable test expectations and schema checks into a common Foundry library. Enabled other teams to plug into shared validation logic across ingestion pipelines.",
+    source: "Resume - original brain dump.docx (PG&E)"
   },
   {
-    title: "Lifecycle Governance Tracker",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?fit=crop&w=800&q=80",
-    link: "#"
+    title: "Docker + GitLab CI for Report Automation",
+    description: "Containerized legacy scripts and deployed via GitLab CI runners to AWS EC2 for ad hoc and scheduled reporting workflows.",
+    source: "Resume - original brain dump.docx (Aetna)"
   },
   {
-    title: "Stakeholder Sync Engine",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?fit=crop&w=800&q=80",
-    link: "#"
+    title: "Interactive Clinical Report Templates",
+    description: "Standardized pptx generation logic for clinical protocol summaries; built editable web templates for business to dynamically control data storytelling.",
+    source: "Resume - original brain dump.docx (Genentech)"
   },
   {
-    title: "Anomaly Detection Library",
-    image: "https://images.unsplash.com/photo-1581090700227-1be168b7dd7b?fit=crop&w=800&q=80",
-    link: "#"
+    title: "Shared Robot Keyword API Layer",
+    description: "Wrapped REST APIs with keywords in Robot Framework for non-developer teams to run full router tests. Handled auth, retries, and assertions under the hood.",
+    source: "Resume - original brain dump.docx (Charter)"
+  },
+  {
+    title: "Slack-Integrated Alert Hooks",
+    description: "Built lambda-triggered alerting flows that piped ingest failures and schema drifts to Slack with detailed tracebacks for resolution.",
+    source: "Resume - original brain dump.docx (PG&E)"
+  },
+  {
+    title: "S3-Powered Asset Dashboards",
+    description: "Auto-generated Tableau dashboards from streaming asset data stored in S3, including fault metadata and inspection summaries.",
+    source: "Resume - original brain dump.docx (PG&E)"
+  },
+  {
+    title: "NLP Field Extractor for Risk Models",
+    description: "Used regex + NLP pipelines to extract sensitive fields from insurer records for compliance tagging. Handled field ambiguity using dictionary and POS heuristics.",
+    source: "Resume - original brain dump.docx (Aetna)"
+  },
+  {
+    title: "Contracted Worker Intake Form Engine",
+    description: "Built low-code framework to onboard third-party resources via intake forms and approval chains. Tied into internal systems with webhook-based triggers.",
+    source: "Resume - original brain dump.docx (ACI / Johnson & Johnson)"
+  },
+  {
+    title: "Hashtag Moodboard Pipeline",
+    description: "Instagram scraping pipeline for marketing teams to generate post moodboards. Filtered by hashtag, engagement, and timestamp.",
+    source: "Resume - original brain dump.docx (Indorama)"
+  },
+  {
+    title: "Dynamic Report Filtering via Lambda + JSON",
+    description: "Created AWS Lambda endpoints that filtered clinical JSON payloads per user input before embedding into templated PowerPoint exports.",
+    source: "Resume - original brain dump.docx (Genentech)"
   }
-];
-
+  ];
     const grid = document.getElementById('frameworks-grid');
 
     tools.forEach(tool => {
