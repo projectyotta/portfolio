@@ -1,0 +1,52 @@
+
+
+Response : 
+
+It was a fun experience going through the interview process and understanding the industry and where the team is currently at, first with William and Nick and then with Jeffery and Narender. 
+
+We had talked about the current end to end process that the team uses to push out features and new code w.r.t branching, deployment frequency, running tests and displaying test results in ADO. I expanded on this and related to it by talking about an end to end pipeline I had built out which leverages automation to move away from manual testers. The pipeline touches various AWS services (s3 for storage and triggers, lambdas with python for parsing and processing data, Aurora for storing test results over time, Tableau dashboards for communicating outcomes with management and automated jobs to notify stakeholders via email). We were also able to talk a little on where the team was and what the eventual goal they wanted to get to - the pipeline I had built was sophisticated w.r.t the type of test suites (smoke, regression, integration, end to end etc), and it seemed like something the team was looking to do. 
+
+We had also talked about an API automation framework that I had taken ownership of. Went through the entire process where I talked to management to understand the requirements and urgency of the ask - I was able to plan, architectm, deliver and deploy a solution to build out 550+ test cases, used by multiple teams today. I believe that I have demonstrated my ability to take ownership of a problem without a clearly defined solution and be a self starter, talk to management on what it is that they want and build something out within timed limits. I did not have a chance to talk about how I was able to foster a culture of code reviews, the fact that I had led a team of 4 devs. I am very comfortable with working in uncertainty. 
+
+
+We did not have too much time to talk about the python code I had developed w.r.t functionality, the discussion veered more towards testing and how I'd used relevant python libs (pytest ,unittest, mocker).
+We had a spirited discussion on testing lambdas with mocker, where we debated having the lambda as a thin vs thick client, executing mocker heavy tests on the lambda vs writing unit tests for the business logic and using the lambda as a thin client with integration tests. I am more than happy to talk about my python experience and how I was able to build functional code. 
+
+From a database and data pipelining perspective, I was able to explain my expertise in working with multiple flavors of datasets (csv,json,xml,yml,sasb7dat,xlsx etc) and databases (Access,DB2,Oracle,MySQL,Postgres) and middleware options for comms (kafka, redis). I was able to explain a workflow where I had collaborated with the business to collate data from multiple rdbms sources, apply an ontology after talking to the business and standardizing them into a single place and then applying odata filters on it for end business users to consume a self serving application instead of relying on custom filters which would consume far higher developer work hours. 
+
+I was able to explain my familiarity with "promoting" data by pipelining it through multiple stages of a medallion architecture - with transformations and checks in bronze, silver and gold standard stages of the data, which I believe speaks to my experience with maturing data across levels with processes and checks at each stage. Also talked about Python processes for financial transaction reconciliation and pre-emptively identifying high risk transactions using a postgres database as the backend, which I believe speaks to my experiuence working with mission critical data pipelines.
+
+I was also able to discern what kind of OLAP data the team deals with on a daily basis (buyers, users and products) and how we could go about adding expectations on these inputs. I was also able to expand on what kind of tests we could have on these inputs in addition to having constraints at the table creation level and how we could go about it. 
+
+Also talked about how to generate test data and compare against expected to have more of a functional testing thing - the team seemed to lean more towards an OOP heavy approach. I unfortunately did not have time to expand on my experience with building OOP heavy code, or with how I had used python during my experience. I would be more than happy to expand on this on another call.  
+
+
+
+
+
+
+I truly appreciate the opportunity to interview with the team and learn more about the exciting work at Compass! The discussions with William, Nick, Jeffery, and Narender were insightful, and I enjoyed diving into the challenges and vision for the True Data product.I wanted to take this opportunity to address the feedback and reinforce how my experience aligns with the role’s expectations.
+
+•  During our conversations, I detailed an end-to-end test automation pipeline I developed, which integrates multiple AWS services—S3 for storage, Lambda with Python for data processing, and Aurora for tracking test results. This pipeline transitioned teams away from manual testing by implementing structured test suites (smoke, regression, integration, and end-to-end). Given the team’s goal of enhancing automation and integrating tests into the CI/CD pipeline, I believe my hands-on experience in designing scalable test frameworks directly aligns with your needs.
+
+While our discussion primarily focused on testing, I want to highlight that my Python expertise extends far beyond. I have built and deployed production-grade Python solutions for test automation, data processing, and system integration—many of which align directly with the needs of this role.
+
+•  I have architected and maintained automation frameworks leveraging pytest, unittest, and mocker, ensuring efficient test execution across APIs, data pipelines, and backend services. My experience also includes integrating these frameworks into CI/CD pipelines to enable continuous validation.
+•  I have worked extensively with RESTful and OData APIs, implementing automated validation strategies using Python and building API contracts with the business to ensure data consistency and integrity.
+•  Beyond testing, I have built Python-based ETL pipelines, API clients, and automation scripts to handle complex data transformations, schema validations, and system integrations.
+•  I have written Python scripts for high-performance data processing, utilizing pandas, pyspark, numpy, multiprocessing and asyncio to handle large-scale datasets efficiently.
+
+Ensuring data integrity, validation, and transformation accuracy has been a major part of my work, and I bring significant expertise in building robust data testing strategies that align well with your team’s objectives.
+
+•  I have extensive experience handling CSV, JSON, XML, YAML, Parquet, and Excel-based data across multiple databases (Postgres, MySQL, Oracle, DB2, Access). My expertise includes writing complex SQL queries to validate transformations, enforce constraints, and identify anomalies.
+•  I have implemented Bronze-Silver-Gold data promotion strategies, where I designed validation rules, business logic transformations, and automated quality checks at each stage. This approach ensured that only validated and enriched data reached production analytics systems.
+•  I have worked with both streaming (Kafka, Redis) and batch processing pipelines, implementing automated data validation steps to detect schema validations, anomalies, and missing values before data is consumed downstream.
+•  I built Python-driven reconciliation processes at the dataset level for a business critical financial processing pipeline that preemptively flagged high-risk transactions using validation rules and automated exception handling. 
+•  I designed test data generation methodologies, implementing parameterized test suites to compare expected vs. actual results dynamically. My approach incorporated statistical validation, outlier detection, and row-level data integrity checks to ensure end-to-end data quality.
+
+
+Given the team’s reliance on Python-driven automation, database validation, and scalable test architectures, I believe my experience aligns with your needs. 
+Beyond technical expertise, I believe my ability to take ownership of ambiguous problems and drive solutions is a key strength. My previous experience of leading a team of four engineers, working with management to align automation strategies and fostering a culture of code reviews makes me comfortable taking up high-ownership roles and navigating uncertainty to deliver impactful results.I believe I can contribute to the data quality initiatives by bringing structured, scalable testing methodologies.
+While we didn’t dive deeply into my Python development experience, I am confident that my expertise satisfies the level required for this role and I would be happy to demonstrate this in a follow-up discussion or a code challenge. 
+
+Looking forward to your thoughts!
