@@ -4,209 +4,615 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Saurabh Rao | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
   <style>
-    a.section-link {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      width: 100%;
+    :root {
+      --bg: #0c0e10;
+      --panel: #11141a;
+      --panel-strong: #151b20;
+      --text: #f4f4f4;
+      --muted: #c2c2c2;
+      --accent: #6ec1e4;
+      --highlight: #c4ff88;
+      --border: #252a31;
     }
 
-    a.section-link > section {
-      cursor: pointer;
-    }
-
-    body {
-      background-color: #0c0e10;
-      color: #f4f4f4;
-      font-family: 'Inter', sans-serif;
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    header {
-      padding: 4rem 3rem 2rem;
-      background: linear-gradient(to bottom, #11141a, #0c0e10);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 3rem;
-      align-items: center;
-      justify-content: center;
-      max-width: 1400px;
-      margin: 0 auto;
+    html {
+      scroll-behavior: smooth;
     }
 
-    header img {
-      border-radius: 50%;
-      width: 160px;
-      height: 160px;
-      object-fit: cover;
-      border: 2px solid #6ec1e4;
-    }
-
-    .intro-text {
-      max-width: 700px;
-    }
-
-    header h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 3rem;
-      color: #c4ff88;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      color: #c2c2c2;
-      margin-top: 0.75rem;
-      line-height: 1.7;
-    }
-
-    .section {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      padding: 4rem 6rem;
-      border-bottom: 1px solid #1a1d22;
-    }
-
-    .section:nth-child(odd) {
-      background-color: #0e1012;
-    }
-
-    .section:nth-child(even) {
-      background-color: #11141a;
-    }
-
-    .section-text {
-      max-width: 50%;
-    }
-
-    .section-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem;
-      color: #c4ff88;
-      margin-bottom: 1rem;
-    }
-
-    .section-body {
-      color: #c2c2c2;
-      font-size: 1.05rem;
-      line-height: 1.6;
-    }
-
-    .section-image img {
-      width: 420px;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(110, 193, 228, 0.12), transparent 32rem),
+        linear-gradient(180deg, #11141a 0%, var(--bg) 52%, #08090b 100%);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
     }
 
     a {
+      color: inherit;
       text-decoration: none;
+    }
+
+    .topbar {
+      align-items: center;
+      backdrop-filter: blur(18px);
+      background: rgba(12, 14, 16, 0.78);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      height: 68px;
+      justify-content: space-between;
+      left: 0;
+      padding: 0 2rem;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 20;
+    }
+
+    .brand {
+      align-items: center;
+      display: flex;
+      gap: 0.85rem;
+      min-width: 0;
+    }
+
+    .brand img {
+      border: 1px solid rgba(196, 255, 136, 0.55);
+      border-radius: 50%;
+      height: 42px;
+      object-fit: cover;
+      width: 42px;
+    }
+
+    .brand span {
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .menu-toggle {
+      align-items: center;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      cursor: pointer;
+      display: inline-flex;
+      gap: 0.75rem;
+      height: 42px;
+      justify-content: center;
+      padding: 0 0.95rem;
+    }
+
+    .menu-toggle:hover,
+    .menu-toggle:focus-visible {
+      border-color: var(--accent);
+      outline: none;
+    }
+
+    .menu-icon {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 24px;
+    }
+
+    .menu-icon span {
+      background: var(--text);
+      display: block;
+      height: 2px;
+      width: 100%;
+    }
+
+    .menu-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .menu-panel {
+      background: rgba(8, 9, 11, 0.92);
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      position: fixed;
+      transition: opacity 180ms ease;
+      z-index: 30;
+    }
+
+    .menu-panel.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .menu-drawer {
+      background: #0f1317;
+      border-left: 1px solid var(--border);
+      box-shadow: -24px 0 60px rgba(0, 0, 0, 0.35);
+      height: 100%;
+      margin-left: auto;
+      max-width: 420px;
+      overflow-y: auto;
+      padding: 2rem;
+      transform: translateX(100%);
+      transition: transform 220ms ease;
+      width: min(92vw, 420px);
+    }
+
+    .menu-panel.is-open .menu-drawer {
+      transform: translateX(0);
+    }
+
+    .menu-head {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+    }
+
+    .menu-head h2 {
+      color: var(--highlight);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 600;
+    }
+
+    .close-menu {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 1.35rem;
+      height: 40px;
+      line-height: 1;
+      width: 40px;
+    }
+
+    .close-menu:hover,
+    .close-menu:focus-visible {
+      border-color: var(--accent);
+      outline: none;
+    }
+
+    .menu-links {
+      display: grid;
+      gap: 0.65rem;
+      list-style: none;
+    }
+
+    .menu-links a {
+      border: 1px solid var(--border);
+      display: block;
+      padding: 1rem;
+      transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+    }
+
+    .menu-links a:hover,
+    .menu-links a:focus-visible {
+      background: rgba(110, 193, 228, 0.08);
+      border-color: var(--accent);
+      outline: none;
+      transform: translateX(-4px);
+    }
+
+    .menu-links strong {
+      color: var(--text);
+      display: block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .menu-links span {
+      color: var(--muted);
+      display: block;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    main {
+      padding: 68px 0 0;
+    }
+
+    .hero {
+      align-items: center;
+      display: grid;
+      min-height: calc(100vh - 68px);
+      padding: 5rem 2rem;
+    }
+
+    .hero-inner {
+      margin: 0 auto;
+      max-width: 1060px;
+      width: 100%;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      margin-bottom: 1.4rem;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      color: var(--highlight);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.4rem, 7vw, 5.7rem);
+      font-weight: 600;
+      line-height: 1.02;
+      max-width: 920px;
+    }
+
+    .intro {
+      color: var(--muted);
+      font-size: 1.16rem;
+      line-height: 1.75;
+      margin-top: 2rem;
+      max-width: 760px;
+    }
+
+    .intro strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2.25rem;
+    }
+
+    .primary-action,
+    .secondary-action {
+      align-items: center;
+      border: 1px solid var(--border);
+      display: inline-flex;
+      font-size: 0.88rem;
+      font-weight: 700;
+      height: 46px;
+      justify-content: center;
+      letter-spacing: 0.08em;
+      padding: 0 1.1rem;
+      text-transform: uppercase;
+    }
+
+    .primary-action {
+      background: var(--highlight);
+      border-color: var(--highlight);
+      color: #101410;
+    }
+
+    .secondary-action:hover,
+    .secondary-action:focus-visible {
+      border-color: var(--accent);
+      outline: none;
+    }
+
+    .selected-work {
+      background: rgba(17, 20, 26, 0.74);
+      border-top: 1px solid var(--border);
+      padding: 3.5rem 2rem 4.5rem;
+    }
+
+    .selected-work-inner {
+      margin: 0 auto;
+      max-width: 1060px;
+    }
+
+    details {
+      border: 1px solid var(--border);
+      background: rgba(12, 14, 16, 0.56);
+    }
+
+    summary {
+      color: var(--text);
+      cursor: pointer;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      list-style: none;
+      padding: 1.35rem 1.5rem;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      color: var(--accent);
+      content: '+';
+      float: right;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+    }
+
+    details[open] summary::after {
+      content: '-';
+    }
+
+    .featured-list {
+      border-top: 1px solid var(--border);
+      list-style: none;
+    }
+
+    .featured-list a {
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      gap: 0.45rem;
+      padding: 1.2rem 1.5rem;
+    }
+
+    .featured-list li:last-child a {
+      border-bottom: 0;
+    }
+
+    .featured-list a:hover,
+    .featured-list a:focus-visible {
+      background: rgba(196, 255, 136, 0.06);
+      outline: none;
+    }
+
+    .featured-list strong {
+      color: var(--highlight);
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .featured-list span {
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .contact {
+      padding: 4rem 2rem 5rem;
+    }
+
+    .contact-inner {
+      align-items: center;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+      margin: 0 auto;
+      max-width: 1060px;
+      padding-top: 2rem;
+    }
+
+    .contact p {
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 620px;
+    }
+
+    footer {
+      color: #89919a;
+      font-size: 0.9rem;
+      padding: 0 2rem 2rem;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .topbar {
+        height: 62px;
+        padding: 0 1rem;
+      }
+
+      .brand span {
+        font-size: 0.92rem;
+      }
+
+      .menu-label {
+        display: none;
+      }
+
+      main {
+        padding-top: 62px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 4rem 1.2rem;
+      }
+
+      .intro {
+        font-size: 1.03rem;
+      }
+
+      .selected-work,
+      .contact {
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+      }
+
+      .contact-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Saurabh Rao home">
+      <img src="images/pjlogo.png" alt="Saurabh Rao" />
+      <span>Saurabh Rao</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-controls="site-menu" aria-expanded="false">
+      <span class="menu-label">Menu</span>
+      <span class="menu-icon" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+  </header>
 
-  <header>
-    <img src="images/pjlogo.png" alt="Profile Photo" />
-  <div class="intro-text">
-    <h1>Because complexity isn’t the enemy. Confusion is.</h1>
-
-    <p>Hi! I'm Saurabh</p>
-    <p>Most of my work happens where specs are incomplete, inputs are noisy, and the person who asked for it isn’t sure what they want.</p>
-    <p>I build tooling for messy environments — validator libraries, ingestion frameworks, QA harnesses, decision dashboards. The goal isn’t just to move data via technical artifacts, but to build reasoning scaffolds to shape how people think about responsibility, visibility, and defaults.</p>
-    <p>I work at the intersection of code, data, infra, interpretation, and ambiguity — where the bottlenecks aren’t just technical, but social, cognitive and contractual. My edge is in making that complexity legible. </p>
-
-    Feedback from Akshay : 
-    1. This is too information dense for the homepage - a thought process where we get rid of the images on the homepage , and have a dropdown with a list of the top 5 articles should be a better read. 
-
-    2. Try having a burger menu which lists out all the sections I want instead of having them all on the homepage. 
-
-    
+  <div class="menu-panel" id="site-menu" aria-hidden="true">
+    <nav class="menu-drawer" aria-label="Portfolio sections">
+      <div class="menu-head">
+        <h2>Sections</h2>
+        <button class="close-menu" type="button" aria-label="Close menu">&times;</button>
+      </div>
+      <ul class="menu-links">
+        <li>
+          <a href="work_in_systems.html">
+            <strong>Work in Systems</strong>
+            <span>Infrastructure, observability, automation, and durable data workflows.</span>
+          </a>
+        </li>
+        <li>
+          <a href="product_and_strategic_reasoning.html">
+            <strong>Product & Strategic Reasoning</strong>
+            <span>Decision trails, market reads, operating models, and product judgment.</span>
+          </a>
+        </li>
+        <li>
+          <a href="data_product_whitepapers.html">
+            <strong>Data Product Whitepapers</strong>
+            <span>System design notes, health metrics, handoffs, and data product logic.</span>
+          </a>
+        </li>
+        <li>
+          <a href="framework_internal_tools.html">
+            <strong>Frameworks & Internal Tools</strong>
+            <span>Reusable libraries, validators, rule engines, dashboards, and scaffolds.</span>
+          </a>
+        </li>
+        <li>
+          <a href="investigations_explorations.html">
+            <strong>Investigations & Explorations</strong>
+            <span>Deep dives, UX teardowns, data commons thinking, and open-ended research.</span>
+          </a>
+        </li>
+        <li>
+          <a href="essays_narratives.html">
+            <strong>Essays & Narrative Memos</strong>
+            <span>Writing on ambiguity, decision debt, optionality, and organizational clarity.</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
-</header>
 
-
-
-  <a href="work_in_systems.html" class="section-link">
-    <section class="section">
-      <div class="section-text">
-        <h2 class="section-title">Work in Systems</h2>
-        <p class="section-body">Infrastructure, observability, automation — from Foundry to cloud-native pipelines that don't break under load. Resilient, testable, production-ready.</p>
-      </div>
-      <div class="section-image">
-        <img src="https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg" alt="Systems Infrastructure" />
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-inner">
+        <p class="eyebrow">Systems, data products, and strategic ambiguity</p>
+        <h1 id="page-title">Because complexity isn't the enemy. Confusion is.</h1>
+        <p class="intro">
+          Hi, I'm Saurabh. I build tooling for messy environments where specs are incomplete, inputs are noisy, and the real problem is often hiding between code, data, infrastructure, and human decision-making. My work turns that mess into <strong>reasoning scaffolds</strong>: validator libraries, ingestion frameworks, QA harnesses, dashboards, and operating models that make responsibility and next steps legible.
+        </p>
+        <div class="hero-actions">
+          <button class="primary-action menu-toggle" type="button" aria-controls="site-menu" aria-expanded="false">Browse Sections</button>
+          <a class="secondary-action" href="#selected-work">Top 5 Reads</a>
+        </div>
       </div>
     </section>
-  </a>
 
-  <a href="product_and_strategic_reasoning.html" class="section-link">
-    <section class="section">
-      <div class="section-text">
-        <h2 class="section-title">Product & Strategic Reasoning</h2>
-        <p class="section-body">How products are defined, positioned, evolved. End-to-end decision trails: scraping prototypes, go-to-market docs, internal write-ups, stakeholder insight models.</p>
-      </div>
-      <div class="section-image">
-        <img src="https://images.pexels.com/photos/1088614/pexels-photo-1088614.jpeg" alt="Product Thinking" />
+    <section class="selected-work" id="selected-work" aria-labelledby="selected-work-title">
+      <div class="selected-work-inner">
+        <details open>
+          <summary id="selected-work-title">Top 5 reads</summary>
+          <ul class="featured-list">
+            <li>
+              <a href="work_in_systems.html">
+                <strong>Foundry-Based Power Grid Data Pipeline</strong>
+                <span>A concrete example of data reliability, validation, and operational resilience in production pipelines.</span>
+              </a>
+            </li>
+            <li>
+              <a href="data_product_whitepapers.html">
+                <strong>DFA Health Monitor: Early Fault Detection</strong>
+                <span>A system-design read on turning asset data into earlier operational signal.</span>
+              </a>
+            </li>
+            <li>
+              <a href="framework_internal_tools.html">
+                <strong>Validator Blueprint for PG&E Datasets</strong>
+                <span>Reusable validation logic as a leverage point across teams and ingestion workflows.</span>
+              </a>
+            </li>
+            <li>
+              <a href="product_and_strategic_reasoning.html">
+                <strong>Multi-Node Decision Mapping</strong>
+                <span>A product and operating-model example across engineering, finance, vendors, and delivery pressure.</span>
+              </a>
+            </li>
+            <li>
+              <a href="essays_narratives.html">
+                <strong>Decision Debt: The Cost of Consensus</strong>
+                <span>A narrative memo on what happens when organizations postpone clarity.</span>
+              </a>
+            </li>
+          </ul>
+        </details>
       </div>
     </section>
-  </a>
 
-  <a href="data_product_whitepapers.html" class="section-link">
-    <section class="section">
-      <div class="section-text">
-        <h2 class="section-title">Data Product Whitepapers</h2>
-        <p class="section-body">End to end system whitepapers - Design docs, alerting strategies, health metrics, integration cadences, operational handoffs.</p>
-      </div>
-      <div class="section-image">
-        <img src="https://images.pexels.com/photos/1926404/pexels-photo-1926404.jpeg" alt="Data Whitepapers" />
+    <section class="contact" aria-labelledby="contact-title">
+      <div class="contact-inner">
+        <div>
+          <p class="eyebrow" id="contact-title">Contact</p>
+          <p>If you're interested in collaborating, reach out and I can share the most relevant project notes, systems work, or narrative memos.</p>
+        </div>
+        <a class="secondary-action" href="mailto:xyz@abc.com">xyz@abc.com</a>
       </div>
     </section>
-  </a>
+  </main>
 
-  <a href="framework_internal_tools.html" class="section-link">
-    <section class="section">
-      <div class="section-text">
-        <h2 class="section-title">Frameworks & Internal Tools</h2>
-        <p class="section-body">Reusable logic, governance scaffolds, tooling layers that scaled across use cases. Internal pattern libraries, schema validators, rule engines, etc.</p>
-      </div>
-      <div class="section-image">
-        <img src="https://images.pexels.com/photos/7948060/pexels-photo-7948060.jpeg" alt="Internal Tools" />
-      </div>
-    </section>
-  </a>
+  <footer>
+    &copy; 2026 Saurabh Rao
+  </footer>
 
-  <a href="investigations_explorations.html" class="section-link">
-    <section class="section">
-      <div class="section-text">
-        <h2 class="section-title">Investigations & Explorations</h2>
-        <p class="section-body">Deep dives, UX teardowns, concept mapping, data commons reuse patterns, etc.</p>
-      </div>
-      <div class="section-image">
-        <img src="https://images.pexels.com/photos/8985510/pexels-photo-8985510.jpeg" alt="Investigations" />
-      </div>
-    </section>
-  </a>
+  <script>
+    const menuPanel = document.getElementById('site-menu');
+    const menuButtons = document.querySelectorAll('.menu-toggle');
+    const closeButton = document.querySelector('.close-menu');
 
-  <a href="essays_narratives.html" class="section-link">
-    <section class="section">
-      <div class="section-text">
-        <h2 class="section-title">Essays & Narrative Memos</h2>
-        <p class="section-body">Write-ups for myself and others. On ambiguity, decision debt, optionality. Includes narrative memos used internally across programs.</p>
-      </div>
-      <div class="section-image">
-        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df" alt="Narrative Essays" />
-      </div>
-    </section>
-  </a>
+    const setMenuState = (isOpen) => {
+      menuPanel.classList.toggle('is-open', isOpen);
+      menuPanel.setAttribute('aria-hidden', String(!isOpen));
+      menuButtons.forEach((button) => {
+        button.setAttribute('aria-expanded', String(isOpen));
+      });
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    };
 
-#  TODO for me : add a contact section <br>
-If you're interested in collaborating with me, reach out at xyz@abc.com <br>
-#  TODO for me : add a contact section 
-  
+    menuButtons.forEach((button) => {
+      button.addEventListener('click', () => setMenuState(true));
+    });
 
+    closeButton.addEventListener('click', () => setMenuState(false));
+
+    menuPanel.addEventListener('click', (event) => {
+      if (event.target === menuPanel) {
+        setMenuState(false);
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        setMenuState(false);
+      }
+    });
+  </script>
 </body>
 </html>
